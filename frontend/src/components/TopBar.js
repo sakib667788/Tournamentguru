@@ -25,16 +25,13 @@ export default function TopBar() {
         }
         <span className="topbar-name">{settings.appName || 'Tournament Guru'}</span>
       </div>
-      <div style={{display:'flex', gap:'6px', alignItems:'center'}}>
-        <button className="topbar-wallet" onClick={() => navigate('/add-money')} title="Gaming Balance">
+      <div style={{display:'flex', alignItems:'center'}}>
+        <button className="topbar-wallet" onClick={() => navigate('/add-money')} title="Balance">
           <FaWallet size={11}/>
           <span>৳{user?.gamingBalance || 0}</span>
-        </button>
-        <button className="topbar-wallet" onClick={() => navigate('/withdraw')}
-          style={{background:'rgba(16,185,129,0.1)', border:'1.5px solid rgba(16,185,129,0.3)', color:'#059669'}}
-          title="Winning Balance">
-          <FaTrophy size={11}/>
-          <span>৳{user?.winningBalance || 0}</span>
+          <span style={{color:'var(--text-muted)', margin:'0 2px', fontSize:'11px'}}>|</span>
+          <FaTrophy size={11} style={{color:'#059669'}}/>
+          <span style={{color:'#059669'}}>৳{user?.winningBalance || 0}</span>
         </button>
       </div>
     </header>
